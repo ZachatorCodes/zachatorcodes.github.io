@@ -1,0 +1,20 @@
+---
+const contactLinks = [
+  { label: "Email", href: "mailto:zachatorcodes@gmail.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/zachatorcodes/" },
+  { label: "GitHub", href: "https://github.com/ZachatorCodes" },
+];
+---
+
+<footer class="footer footer-horizontal footer-center bg-base-300 p-6">
+  <nav class="grid grid-flow-col gap-6">
+    {
+      contactLinks.map((link) => (
+        <a href={link.href} class="link link-hover">
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+  <p>© {new Date().getFullYear()} Zach Schwartz</p>
+</footer>
