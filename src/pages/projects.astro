@@ -1,73 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
 const pageTitle = "Projects";
-const projects = [
-  {
-    title: "Habit Bingo",
-    stack: ["SvelteKit", "TypeScript", "PostgreSQL", "Claude Code"],
-    description:
-      "A monthly habit-tracking bingo game for friend groups. Built with Claude Code using design specs, milestone plans and architecture decision records, with 79 Vitest and Playwright test files running in GitHub Actions CI.",
-    links: [
-      { label: "Live site", href: "https://habit-bingo-v2.vercel.app" },
-      {
-        label: "Code",
-        href: "https://github.com/ZachatorCodes/habit-bingo-v2",
-      },
-    ],
-  },
-  {
-    title: "Assembler & Virtual Machine",
-    stack: ["C"],
-    description:
-      "An assembler that encodes assembly code to binary in simulated memory and runs it. Grew over 9 milestones to support conditional jumps, I/O, loops, and functions with parameters and return values.",
-    links: [
-      {
-        label: "Code",
-        href: "https://github.com/ZachatorCodes/csc2025-assembler",
-      },
-    ],
-  },
-  {
-    title: "Northern Colorado Grotto Website",
-    stack: ["React", "React Router", "Tailwind CSS", "DaisyUI"],
-    description:
-      "A single-page website for the Northern Colorado Grotto, a chapter of the National Speleological Society, where I serve as secretary.",
-    links: [
-      {
-        label: "Live site",
-        href: "https://zachatorcodes.github.io/noco-grotto/",
-      },
-    ],
-  },
-];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="prose mx-auto mt-4 px-4">
     <h2 class="text-center">Projects</h2>
   </div>
-  <div class="mt-6 grid gap-6 md:grid-cols-3">
-    {
-      projects.map((project) => (
-        <article class="card bg-base-200">
-          <div class="card-body">
-            <h3 class="card-title">{project.title}</h3>
-            <div class="flex flex-wrap gap-1">
-              {project.stack.map((tech) => (
-                <span class="badge badge-outline badge-sm">{tech}</span>
-              ))}
-            </div>
-            <p class="text-sm">{project.description}</p>
-            <div class="card-actions mt-2 justify-end gap-4">
-              {project.links.map((link) => (
-                <a href={link.href} class="link link-primary">
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </article>
-      ))
-    }
+  <div class="mt-6 grid gap-6 md:grid-cols-3 px-5 pb-5">
+    {projects.map((project) => <ProjectCard project={project} />)}
   </div>
 </BaseLayout>
