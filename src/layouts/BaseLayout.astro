@@ -19,6 +19,10 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>ZachatorCodes | {title}</title>
     <meta name="description" content={description} />
+    <meta property="og:title" content={`ZachatorCodes | ${title}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
   </head>
   <body class="bg-base-200 min-h-screen">
     <Header />
