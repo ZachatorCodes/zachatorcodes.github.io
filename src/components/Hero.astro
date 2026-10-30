@@ -1,20 +1,48 @@
 ---
+import { Image, getImage } from "astro:assets";
 import CodeMock from "./CodeMock.astro";
+import headshot from "../assets/headshot.jpeg";
+import flipHeadshot from "../assets/flip-img.jpeg";
+import riverBg from "../assets/river-bg.jpg";
+
+const background = await getImage({
+  src: riverBg,
+  width: 1920,
+  format: "webp",
+});
 
 const imageClass =
   "h-50 md:h-62 xl:h-75 w-50 md:w-62 xl:w-75 rounded-full object-cover shadow-xs sm:shadow-2xl border-5 mb-4 sm:mb-0 sm:mr-3 xl:mr-5";
+const imageWidths = [200, 248, 300, 400, 496, 600];
+const imageSizes = "(min-width: 1280px) 300px, (min-width: 768px) 248px, 200px";
 ---
 
 <div
-  class="flex flex-col sm:flex-row items-center justify-center py-5 sm:py-8 xl:py-10 bg-center bg-cover bg-[url(/river-bg.jpg)]"
+  class="flex flex-col sm:flex-row items-center justify-center py-5 sm:py-8 xl:py-10 bg-center bg-cover"
+  style={`background-image: url(${background.src})`}
 >
   <label class="swap swap-flip">
     <input type="checkbox" />
     <div class="swap-off">
-      <img src="/headshot.JPEG" alt="Zach Schwartz" class={imageClass} />
+      <Image
+        src={headshot}
+        alt="Zach Schwartz"
+        width={600}
+        widths={imageWidths}
+        sizes={imageSizes}
+        loading="eager"
+        class={imageClass}
+      />
     </div>
     <div class="swap-on">
-      <img src="/flip-img.jpeg" alt="Zach Schwartz" class={imageClass} />
+      <Image
+        src={flipHeadshot}
+        alt="Zach Schwartz"
+        width={600}
+        widths={imageWidths}
+        sizes={imageSizes}
+        class={imageClass}
+      />
     </div>
   </label>
   <CodeMock />
