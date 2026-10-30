@@ -1,0 +1,16 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import { projects } from "../data/projects";
+
+const featured = projects.filter((project) => project.featured);
+---
+
+<section class="mx-auto max-w-6xl px-4 pb-10">
+  <h2 class="mb-6 text-center text-2xl font-bold">Featured projects</h2>
+  <div class="grid gap-6 md:grid-cols-3">
+    {featured.map((project) => <ProjectCard project={project} />)}
+  </div>
+  <div class="mt-6 text-center">
+    <a href="/projects/" class="link link-primary">See all projects →</a>
+  </div>
+</section>
