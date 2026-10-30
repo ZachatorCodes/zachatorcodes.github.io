@@ -1,0 +1,75 @@
+---
+const lines = [
+  "Hello there 👋",
+  "",
+  "My name is Zach Schwartz",
+  "and I am a...",
+  "",
+];
+const textClass = "text-sm md:text-lg xl:text-3xl";
+---
+
+<div
+  class="mockup-code w-80/100 sm:w-50/100 xl:w-50/100 shadow-xs sm:shadow-2xl sm:ml-3 xl:ml-5"
+>
+  {
+    lines.map((line, i) => (
+      <pre data-prefix={i + 1} class={textClass} set:text={line} />
+    ))
+  }
+  <pre id="animated-text" data-prefix="6" class={textClass}></pre>
+</div>
+
+<style>
+  #animated-text::after {
+    content: "|";
+    content: "|" / "";
+    animation: blink 300ms ease-in-out infinite alternate;
+  }
+
+  @keyframes blink {
+    to {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const WORDS = [
+    "Full-Stack Developer",
+    "Software Engineer",
+    "Computer Science Student",
+    "Mathematics Student",
+    "Programming Tutor",
+    "Outdoor Enthusiast",
+    "Lifelong Learner",
+  ];
+
+  const TYPE_MS = 100; // Delay between typed letters
+  const DELETE_MS = 50; // Delay between deleted letters
+  const HOLD_MS = 2000; // Pause on a finished word before deleting it
+  const SWITCH_MS = 250; // Pause on an empty line before typing the next word
+
+  const sleep = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
+
+  async function cycleWords(textbox: HTMLElement) {
+    while (true) {
+      for (const word of WORDS) {
+        for (let i = 1; i <= word.length; i++) {
+          textbox.textContent = word.slice(0, i);
+          await sleep(TYPE_MS);
+        }
+        await sleep(HOLD_MS);
+        for (let i = word.length - 1; i >= 0; i--) {
+          textbox.textContent = word.slice(0, i);
+          await sleep(DELETE_MS);
+        }
+        await sleep(SWITCH_MS);
+      }
+    }
+  }
+
+  const textbox = document.getElementById("animated-text");
+  if (textbox) cycleWords(textbox);
+</script>
