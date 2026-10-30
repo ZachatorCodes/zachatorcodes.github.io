@@ -29,7 +29,7 @@ export const projects: Project[] = [
     links: [],
   },
   {
-    title: "Habit Bingo",
+    title: "Habit Bingo (WIP)",
     featured: true,
     stack: ["SvelteKit", "TypeScript", "PostgreSQL", "Claude Code"],
     description:
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Northern Colorado Grotto Website",
+    title: "Northern Colorado Grotto Website (WIP)",
     stack: ["React", "React Router", "Tailwind CSS", "DaisyUI"],
     description:
       "A single-page website for the Northern Colorado Grotto, a chapter of the National Speleological Society, where I serve as secretary.",
