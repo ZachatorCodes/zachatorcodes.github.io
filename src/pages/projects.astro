@@ -2,10 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { projects } from "../data/projects";
-const pageTitle = "Projects";
+const title = "Projects";
+const description = "A collection of my projects and their descriptions.";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout title={title} description={description}>
   <div class="prose mx-auto mt-4 px-4">
     <h2 class="text-center">Projects</h2>
   </div>

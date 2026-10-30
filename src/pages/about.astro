@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Content } from "../content/about.md";
-const pageTitle = "About";
+const title = "About";
+const description = "Learn more about Zach Schwartz, a passionate software developer and technology enthusiast.";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout title={title} description={description}>
   <div class="prose mx-auto mt-4 px-4">
     <h2 class="text-center">About</h2>
     <Content />

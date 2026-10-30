@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Content } from "../content/resume.md";
-const pageTitle = "Resume";
+const title = "Resume";
+const description = "My professional resume and work experience.";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout title={title} description={description}>
   <div class="prose mx-auto mt-4 max-w-4xl px-4">
     <h2 class="text-center">Zach Schwartz</h2>
     <Content />
