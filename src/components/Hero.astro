@@ -1,0 +1,21 @@
+---
+import CodeMock from "./CodeMock.astro";
+
+const imageClass =
+  "h-50 md:h-62 xl:h-75 w-50 md:w-62 xl:w-75 rounded-full object-cover shadow-xs sm:shadow-2xl border-5 mb-4 sm:mb-0 sm:mr-3 xl:mr-5";
+---
+
+<div
+  class="flex flex-col sm:flex-row items-center justify-center py-5 sm:py-8 xl:py-10 bg-center bg-cover bg-[url(/river-bg.jpg)]"
+>
+  <label class="swap swap-flip">
+    <input type="checkbox" />
+    <div class="swap-off">
+      <img src="/headshot.JPEG" alt="Zach Schwartz" class={imageClass} />
+    </div>
+    <div class="swap-on">
+      <img src="/flip-img.jpeg" alt="Zach Schwartz" class={imageClass} />
+    </div>
+  </label>
+  <CodeMock />
+</div>
