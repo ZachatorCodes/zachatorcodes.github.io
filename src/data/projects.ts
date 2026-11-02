@@ -43,6 +43,19 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "A1 Wildwater Website (WIP)",
+    stack: ["Astro", "TypeScript", "Tailwind CSS", "DaisyUI"],
+    description:
+      "A modern website for the A1 Wildwater team, built with Astro and TypeScript. Features a responsive design with Tailwind CSS and DaisyUI components.",
+    links: [
+      { label: "Live site", href: "https://zachatorcodes.github.io/a1wildwater" },
+      {
+        label: "Code",
+        href: "https://github.com/ZachatorCodes/a1wildwater",
+      },
+    ],
+  },
+  {
     title: "Billing System",
     stack: ["C++", "CMake", "PostgreSQL"],
     description:
